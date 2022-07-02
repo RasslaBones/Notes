@@ -1,4 +1,7 @@
 <template>
+
+  <AppNavbar />
+  
   <router-view to="login">
 
   </router-view>
@@ -6,7 +9,9 @@
 </template>
 
 <script>
-export default{
+import AppNavbar from "./components/AppNavbar.vue";
+export default {
+  components: { AppNavbar },
+};
 
-}
 </script>
