@@ -10,7 +10,7 @@ export default {
   components: { AppNavbar },
   mounted(){
     const auth = {
-      isAuth : false,
+      isAuth : true,
     }
     localStorage.setItem("auth",JSON.stringify(auth))
   }
