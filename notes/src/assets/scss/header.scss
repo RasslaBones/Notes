@@ -1,0 +1,17 @@
+.header {
+    padding: 31px 64px;
+    @include adaptiveValue("padding-left", 64, 20);
+    @include adaptiveValue("padding-right", 64, 20);
+    border-bottom: 3px solid #CDCDCD;
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__auth {
+            display: flex;
+            gap: 20px;
+        }
+    }
+}

@@ -1,9 +1,10 @@
 <template>
-  
+  <AppNavbar />
 </template>
 
 <script>
-export default{
-  
-}
+import AppNavbar from "./components/AppNavbar.vue";
+export default {
+  components: { AppNavbar },
+};
 </script>

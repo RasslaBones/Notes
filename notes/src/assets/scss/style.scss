@@ -15,8 +15,10 @@
 //@import "fonts/icons";
 
 // Шрифт по умолчанию ==============================================================================================================================================================================================================================================================================
-$Montserrat: 'Montserrat', sans-serif;
-$Raleway: 'Raleway', sans-serif;
+$Montserrat: 'Montserrat',
+sans-serif;
+$Raleway: 'Raleway',
+sans-serif;
 $fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
 
 // Основные цвета
@@ -71,7 +73,8 @@ $responsiveType: 1;
 @import "base/null";
 
 body {
-    
+  background-color: #EFEFEF;
+
   // Скролл заблокирован
   .lock & {
     overflow: hidden;
@@ -158,5 +161,4 @@ body {
   }
 }
 
-
-
+@import "header.scss"
