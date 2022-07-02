@@ -37,6 +37,7 @@ $simple-color: #46bda5;
 $gray-color: #C4C4C4;
 $gray-text: #E5E5E5;
 $signup-color: #AFAFAF;
+$hero-color: #A89085;
 $gradient: linear-gradient(112.73deg, #FB6868 -4.84%, #46BEA6 106.63%);
 $white: #fff;
 
@@ -70,7 +71,7 @@ $responsiveType: 1;
 @import "base/null";
 
 body {
-
+    
   // Скролл заблокирован
   .lock & {
     overflow: hidden;
