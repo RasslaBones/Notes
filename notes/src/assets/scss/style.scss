@@ -71,7 +71,7 @@ $responsiveType: 1;
 @import "base/null";
 
 body {
-    
+    background-color: #EFEFEF;
   // Скролл заблокирован
   .lock & {
     overflow: hidden;
