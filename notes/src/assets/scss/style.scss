@@ -74,7 +74,6 @@ $responsiveType: 1;
 
 body {
   background-color: #EFEFEF;
-
   // Скролл заблокирован
   .lock & {
     overflow: hidden;
@@ -161,4 +160,8 @@ body {
   }
 }
 
-@import "header.scss"
+
+@import "header"
+
+@import "login"
+
