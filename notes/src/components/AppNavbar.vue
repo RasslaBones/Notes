@@ -1,12 +1,14 @@
 <template>
   <header class="header">
-    <div class="navbar">
-      <div class="navbar__logo">
-        <img src="../assets/images/navbar/Logo.png" alt="" />
-      </div>
-      <div class="navbar__auth">
-        <app-button :style="'login'">Log in</app-button>
-        <app-button :style="'signin'">Sign in</app-button>
+    <div class="header__container">
+      <div class="navbar">
+        <div class="navbar__logo">
+          <img src="../assets/images/navbar/Logo.png" alt="" />
+        </div>
+        <div class="navbar__auth">
+          <app-button :style="'login'">Log in</app-button>
+          <app-button :style="'signin'">Sign in</app-button>
+        </div>
       </div>
     </div>
   </header>
@@ -20,6 +22,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
