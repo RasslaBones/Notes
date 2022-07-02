@@ -1,17 +1,36 @@
 .header {
     padding: 31px 64px;
-    @include adaptiveValue("padding-left", 64, 20);
-    @include adaptiveValue("padding-right", 64, 20);
     border-bottom: 3px solid #CDCDCD;
+
+    @media (max-width:$tablet) {
+        padding: 25px 40px;
+    }
+
+    @media (max-width:$mobile) {
+        padding: 20px 40px;
+    }
+
+    @media (max-width:$mobileSmall) {
+        padding: 15px 20px;
+    }
 
     .navbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
 
+        @media (max-width:$mobileSmall) {
+            gap: 20px;
+        }
+
         &__auth {
             display: flex;
             gap: 20px;
+            align-items: center;
+
+            @media (max-width:$mobileSmall) {
+                flex-direction: column;
+            }
         }
     }
 }

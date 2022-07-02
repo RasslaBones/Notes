@@ -1,12 +1,17 @@
 <template>
   <header class="header">
     <div class="navbar">
-      <div class="navbar__logo">
+      <router-link to="/home" class="navbar__logo">
         <img src="../assets/images/navbar/Logo.png" alt="" />
-      </div>
+      </router-link>
       <div class="navbar__auth">
-        <app-button :style="'login'">Log in</app-button>
-        <app-button :style="'signin'">Sign in</app-button>
+        <router-link to="/login">
+          <app-button :style="'login'">Log in</app-button>
+        </router-link>
+        
+        <router-link to="/signup">
+          <app-button :style="'signin'">Sign in</app-button>
+        </router-link>
       </div>
     </div>
   </header>
