@@ -44,8 +44,8 @@
         font-size: 48px;
         line-height: 59px;
         @media (max-width: $tablet){
-            font-size: 42px;
-            line-height: 48px;
+            font-size: 32px;
+            line-height: 38px;
         }
     }
     &__text{
@@ -85,5 +85,15 @@
         float: right;
         margin-top: 5px;
         margin-right: 20px;
+    }
+
+    &__enter{
+        margin: 0 0 0 auto;
+        max-width: 120px;
+        width: 100%;
+        padding: 10px 20px !important;
+        @media (max-width: $mobile){
+            max-width: 100%;
+        }
     }
 }

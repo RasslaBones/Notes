@@ -16,17 +16,6 @@
 import AppButton from "./UI/AppButton.vue";
 export default {
   name: "AppNavbar",
-  data(){
-    return{
-      style:{
-        type: String,
-        default: 'login',
-        validator(val){
-          return ['login','signin','gradient'].includes(val)
-        }
-      }
-    }
-  },
   components: { AppButton },
 };
 </script>

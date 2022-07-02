@@ -18,12 +18,17 @@
                 <input type="text" id="Password" placeholder="Password..."> <!-- change type to password -->
                 <router-link class="login__signup" to="signup">No account ?</router-link>
             </div>
+
+            <app-button class="login__enter" :style="'gradient'">Enter</app-button> 
         </div>
     </div>  
 </template>
 
 <script>
+import AppButton from '@/components/UI/AppButton.vue';
 export default{
-
+    components: {
+        AppButton
+    }
 }
 </script>

@@ -7,7 +7,16 @@
 <script>
 export default {
   name: "AppButton",
-  props: ['style']
+  props: {
+    style: {
+      type: String,
+      default: 'login',
+      validator(val){
+        return ['login','signin','gradient'].includes(val) ? val : ''
+    }
+  }
+  }
+    
 };
 </script>
 
