@@ -5,8 +5,8 @@
         <img src="../assets/images/navbar/Logo.png" alt="" />
       </div>
       <div class="navbar__auth">
-        <app-button class="navbar__login" :class="login">Log in</app-button>
-        <app-button class="navbar__signin" :class="signin">Sign in</app-button>
+        <app-button :style="'login'">Log in</app-button>
+        <app-button :style="'signin'">Sign in</app-button>
       </div>
     </div>
   </header>
@@ -16,32 +16,21 @@
 import AppButton from "./UI/AppButton.vue";
 export default {
   name: "AppNavbar",
-  components: { AppButton },
-  data() {
-    return {
-      login: "login",
-      signin: "signin",
-      gradient: "gradient",
-    };
+  data(){
+    return{
+      style:{
+        type: String,
+        default: 'login',
+        validator(val){
+          return ['login','signin','gradient'].includes(val)
+        }
+      }
+    }
   },
+  components: { AppButton },
 };
 </script>
 
 <style lang="scss">
-.login {
-  border: 3px solid #cdcdcd;
-  border-radius: 8px;
-  padding: 5px 20px;
-}
-.signin {
-  background-color: #cdcdcd;
-  border-radius: 8px;
-  padding: 5px 20px;
-  color: #fff;
-}
-.gradient {
-  background: linear-gradient(to right, #cdcdcd, #fff);
-  border-radius: 8px;
-  padding: 5px 20px;
-}
+
 </style>
