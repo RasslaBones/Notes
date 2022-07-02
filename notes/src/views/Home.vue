@@ -1,6 +1,6 @@
 <template>
     <div class="home__container">
-        <app-card :color="'green'"></app-card>
+        <app-card :color="'red'"></app-card>
     </div>
 </template>
 

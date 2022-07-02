@@ -1,5 +1,5 @@
 <template>
-    <div class="card card__wrapper" :class="color + (isChecked ? '-checked' : '')">
+    <div class="card card__wrapper" :class="color + (isChecked ? '-checked' : '')" @click="this.isChecked = !this.isChecked">
         <input v-model="isChecked" class="checkbox" type="checkbox" />
         <div class="card__text">
             <div class="card__header">
