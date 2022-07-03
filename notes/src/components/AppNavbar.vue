@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="navbar">
-      <router-link to="/home" class="navbar__logo">
+      <router-link to="/" class="navbar__logo">
         <img src="../assets/images/navbar/Logo.png" alt="" />
       </router-link>
       <div class="navbar__auth">
