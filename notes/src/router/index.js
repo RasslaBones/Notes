@@ -2,15 +2,16 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
+    path: '/',
+    component: () => import("../views/Home"),
+    name: 'home',
+    
+  },
+  {
     path: '/login',
     component: () => import("../views/Login"),
     name: 'login'
   },
-  {
-    path: '/home',
-    component: () => import("../views/Home"),
-    name: 'home'
-  }
 ]
 
 const router = createRouter({
@@ -18,4 +19,14 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+    let auth = JSON.parse(localStorage.getItem('auth'))
+    if( to.name == 'home' && auth.isAuth == false){
+      next('/login')
+    }
+    else{
+      next()
+    }
+  }
+)
 export default router
