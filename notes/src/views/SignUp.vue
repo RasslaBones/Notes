@@ -10,7 +10,7 @@
         <div class="signup__inputs">
             <div class="signup__input">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Email...">
+                <input v-model="email" type="email" id="email" placeholder="Email...">
             </div>
 
             <div class="signup__input">
@@ -29,17 +29,19 @@
 
             <div class="signup__input">
                 <label for="confirm">Confirm Password</label>
-                <div class="signup__password" v-if="!confirmVisibility">
+                <div class="signup__password" v-if="!visibility">
                     <input v-model="confirmPassword" type="password" id="confirm" placeholder="Password..." />
-                    <img src="@/assets/icons/visibilityON.svg" alt="Error" @click="this.confirmVisibility = !this.confirmVisibility">
+                    <img src="@/assets/icons/visibilityON.svg" alt="Error" @click="this.visibility = !this.visibility">
                 </div>
                 <div class="signup__password" v-else>
                     <input v-model="confirmPassword" type="text" id="confirm" placeholder="Password..." />
-                    <img src="@/assets/icons/visibilityOFF.svg" alt="Error" @click="this.confirmVisibility = !this.confirmVisibility">
+                    <img src="@/assets/icons/visibilityOFF.svg" alt="Error" @click="this.visibility = !this.visibility">
                 </div>
             </div>
 
-            <app-button class="signup__enter wide-button" :style="'gradient'">Sign Up</app-button> 
+            <app-button class="signup__enter wide-button" :style="'gradient'" @click="submit">
+                <router-link to="/login">Sign Up</router-link>
+            </app-button> 
         </div>
     </div>  
 </template>
@@ -50,13 +52,21 @@ export default{
     data(){
         return{
             visibility: false,
-            confirmVisibility: false,
             password: '',
             confirmPassword: '',
+            email: '',
         }
     },
     components: {
         AppButton
+    },
+    methods: {
+        submit(){
+            this.$store.dispatch("registerUser",{
+                email: this.email,
+                password: this.password
+            })
+        }
     }
 }  
 </script>

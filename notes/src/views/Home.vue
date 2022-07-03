@@ -27,14 +27,19 @@
       <div class="home__text">Create a note!</div>
     </div>
   </div>
+
 </template>
 
 <script>
+import AppCard from '@/components/UI/AppCard.vue';
 export default {
   data() {
     return {
       isSmall: true,
     };
   },
+  components: {
+    AppCard
+  }
 };
 </script>

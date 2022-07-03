@@ -24,14 +24,15 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
-    let auth = JSON.parse(localStorage.getItem('auth'))
-    if( to.name == 'home' && auth.isAuth == false){
-      next('/login')
-    }
-    else{
-      next()
-    }
-  }
-)
+// router.beforeEach((to, from, next) => {
+//     let auth = $store.state.isAuth
+//     if( to.name == 'home' && auth == false){
+//       next('/login')
+//     }
+//     else{
+//       next()
+//     }
+//   }
+// )
+
 export default router

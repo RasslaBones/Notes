@@ -10,7 +10,7 @@
         <div class="login__inputs">
             <div class="login__input">
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Email...">
+                <input v-model="email" type="email" id="email" placeholder="Email...">
             </div>
 
             <div class="login__input">
@@ -25,7 +25,8 @@
                 </div>
             </div>
 
-            <app-button class="login__enter" :style="'gradient'">Enter</app-button> 
+            <app-button class="login__enter" :style="'gradient'" @click="logIn">Enter</app-button>
+   
         </div>
     </div>  
 </template>
@@ -36,7 +37,16 @@ export default{
     data(){
         return{
             visibility: false,
-            password: ''
+            password: '',
+            email: ''
+        }
+    },
+    methods:{
+        logIn(){
+            this.$store.dispatch("loginUser",{
+                email: this.email,
+                password: this.password
+            }).then(()=> this.$router.push('/'))
         }
     },
     components: {
