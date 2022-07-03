@@ -2,7 +2,8 @@
   <div class="home__container home">
     <div class="home__buttons buttons">
       <div class="buttons__create">
-        <img src="@/assets/icons/plus.svg" /><span>create</span>
+        <img src="@/assets/icons/plus.svg">
+        <div class="buttons__text">Create</div>
       </div>
       <div class="buttons__view view">
 
@@ -19,10 +20,10 @@
 
       </div>
     </div>
-    <div class="home__content">
+    <div class="home__empty">
       <img src="@/assets/icons/Empty-icon.svg" />
-      <h3>no created notes</h3>
-      <p>create one</p>
+      <div class="home__title"><strong>No created notes</strong></div>
+      <div class="home__text">Create a note!</div>
     </div>
   </div>
 </template>
