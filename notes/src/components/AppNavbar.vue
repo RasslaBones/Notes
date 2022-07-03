@@ -1,14 +1,19 @@
 <template>
   <header class="header">
-    <div class="header__container">
-      <div class="navbar">
-        <div class="navbar__logo">
-          <img src="../assets/images/navbar/Logo.png" alt="" />
-        </div>
-        <div class="navbar__auth">
+
+    <div class="navbar">
+      <router-link to="/" class="navbar__logo">
+        <img src="../assets/images/navbar/Logo.png" alt="" />
+      </router-link>
+      <div class="navbar__auth">
+        <router-link to="/login">
           <app-button :style="'login'">Log in</app-button>
+        </router-link>
+        
+        <router-link to="/signup">
           <app-button :style="'signin'">Sign in</app-button>
-        </div>
+        </router-link>
+        
       </div>
     </div>
   </header>

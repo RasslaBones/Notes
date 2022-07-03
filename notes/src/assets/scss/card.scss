@@ -1,0 +1,71 @@
+.card{
+    color: white;
+    &__wrapper{
+        border-radius: 8px;
+        max-width: 380px;
+        max-height: 130px;
+        padding: 15px 20px;
+        width: 380px;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+    }
+    input[type="checkbox"]{
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        min-width: 18px;
+        width: 18px;
+        height: 18px;
+        border-radius: 5px;
+        border: 1px solid white;
+        cursor: pointer;
+        &:checked{
+            background: url("../icons/check.svg");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    &__text{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        user-select: none;
+    }
+    &__header{
+        
+        display: flex;
+        justify-content: space-between;
+    }
+    &__desc{
+        font-size: 13px;
+        line-height: 16px;
+    }
+}
+.red{
+    background-color: $red-regular;
+    &-checked{
+        background-color: $red-regular;
+        text-decoration: line-through;
+    }
+}
+
+.orange{
+    background-color: $orange-regular;
+    &-checked{
+        background-color: $orange-dark;
+        text-decoration: line-through;
+    }
+}
+
+.green{
+    background-color: $green-regular;
+    &-checked{
+        background-color: $green-dark;
+        text-decoration: line-through;
+    }
+}

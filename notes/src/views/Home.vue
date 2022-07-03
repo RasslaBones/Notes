@@ -1,4 +1,5 @@
 <template>
+
   <div class="home__container home">
     <div class="home__buttons buttons">
       <div class="buttons__create">
@@ -37,5 +38,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
