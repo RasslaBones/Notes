@@ -17,7 +17,6 @@ const routes = [
     component: () => import("../views/SignUp"),
     name: 'signup'
   },
-
 ]
 
 const router = createRouter({

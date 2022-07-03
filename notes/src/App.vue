@@ -1,7 +1,10 @@
 <template>
-
   <AppNavbar />
-  <router-view></router-view>
+  
+  <div class="app__container">
+    <router-view></router-view>
+  </div>
+  
 </template>
 
 <script>
@@ -15,5 +18,4 @@ export default {
     localStorage.setItem("auth",JSON.stringify(auth))
   }
 };
-
 </script>

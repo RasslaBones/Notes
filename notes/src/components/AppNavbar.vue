@@ -1,5 +1,6 @@
 <template>
   <header class="header">
+
     <div class="navbar">
       <router-link to="/" class="navbar__logo">
         <img src="../assets/images/navbar/Logo.png" alt="" />
@@ -12,6 +13,7 @@
         <router-link to="/signup">
           <app-button :style="'signin'">Sign in</app-button>
         </router-link>
+        
       </div>
     </div>
   </header>
@@ -25,6 +27,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
