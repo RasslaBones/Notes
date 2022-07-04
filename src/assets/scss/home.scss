@@ -1,5 +1,8 @@
 .home {
     margin-top: 65px;
+    @media (max-width: $mobile){
+        margin-top: 20px;
+    }
     &__empty{
         margin: 170px auto;
         max-width: 320px;
@@ -12,8 +15,156 @@
     &__text{
         margin-top: 30px;
         font-weight: 500;
+    }  
+    &__examples{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
     }
-    
+}
+
+.examples{
+    &__red, &__orange, &__green{
+        display: none;
+        align-items: center;
+        gap: 5px;
+        color: $red-regular;
+        @media (max-width: $tablet){
+            display: flex;
+        }
+    }
+    &__orange{
+        color: $orange-regular;
+    }
+    &__green{
+        color: $green-regular;
+    }
+    &__dot{
+        width: rem(8);
+        height: rem(8);
+        border-radius: 50%;
+    }
+}
+
+
+
+.notes{
+    margin: 50px auto;
+    max-width: 1440px;
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 1024px){
+        margin: 50px auto;
+    }
+    @media (max-width: $tablet){
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 20px;
+    }
+    @media (max-width: $mobileSmall){
+        margin: 25px auto;
+    }
+    &__red{
+        position: relative;
+        display: flex;
+        flex-direction: column;    
+        gap: 20px;
+        &__wrapper{
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            overflow-x:auto;
+            border-right: 3px dashed #CDCDCD;
+            padding: 0 35px;
+            max-height: 600px; 
+            -ms-overflow-style: none;
+            scrollbar-width: none;  
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            @media (max-width: $tablet){
+                border: none;
+            }
+            @media (max-width: 425px){
+                padding: 0 5px;
+            }
+        }   
+    }
+    &__orange{
+        position: relative;
+        display: flex;
+        flex-direction: column;    
+        gap: 20px;
+        &__wrapper{
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            overflow-x:auto;
+            border-right: 3px dashed #CDCDCD;
+            padding: 0 35px;
+            max-height: 600px; 
+            -ms-overflow-style: none;
+            scrollbar-width: none;  
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            @media(max-width:1024px){
+                border: none
+            }
+            @media (max-width: 425px){
+                padding: 0 5px;
+            }
+        }  
+        
+    }
+    &__green{
+        position: relative;
+        display: flex;
+        flex-direction: column;    
+        gap: 20px;
+        &__wrapper{
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            overflow-x:auto;
+            padding: 0 35px;
+            max-height: 600px; 
+            -ms-overflow-style: none;
+            scrollbar-width: none;  
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            @media (max-width: 425px){
+                padding: 0 5px;
+            }
+        }  
+        @media (max-width: 1024px){
+            margin: 50px auto;
+        }
+        @media (max-width: $tablet){
+            margin: 0;
+        }
+        
+    }
+    &__title{
+        text-align: center;
+        @media(max-width: $tablet){
+            display: none;
+        }
+    }
+}
+
+.title{
+    &__red{
+        color: $red-regular;
+    }
+    &__orange{
+        color: $orange-regular;
+    }
+    &__green{
+        color: $green-regular;
+    }
 }
 
 .buttons {
@@ -23,6 +174,7 @@
     @media (max-width:$tablet){
         justify-content: center;
     }
+    
 
     &__create {
         max-width: 139px;
@@ -51,6 +203,9 @@
         outline: 2px solid #CDCDCD;
         display: flex;
         overflow: hidden;
+        @media (max-width: $tablet){
+            display: none;
+        }
     }
 }
 
@@ -77,4 +232,14 @@
 
 .active {
     background-color: #C4C4C440;
+}
+
+.red-dot{
+    background-color: $red-regular;
+}
+.orange-dot{
+    background-color: $orange-regular;
+}
+.green-dot{
+    background-color: $green-regular;
 }

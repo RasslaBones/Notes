@@ -27,8 +27,9 @@ $fontSize: rem(16); // где 14(px) - размер шрифта по умолч
 $mainColor: #000; // Цвет шрифта по умолчанию
 $secondColor: #808080;
 $red-regular: #FB6868;
+$red-dark: #d44c4c;
 $orange-regular: #FF985C;
-$orange-dark: #EB9D70;
+$orange-dark: #d37844;
 $green-regular: #46BEA6;
 $green-dark: #659F93;
 $red-text: #F52222;
@@ -171,3 +172,5 @@ body {
 @import "signup";
 
 @import "card";
+
+@import "modal";
