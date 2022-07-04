@@ -4,26 +4,28 @@
     <div class="modal-content">
       <span class="close" @click="isOpen = false">&times;</span>
       <!-- <span class="close" @click="$emit('closeModal')">&times;</span> -->
-      <h3 class="modal__title">Create a note</h3>
-      <div class="modal__name">
-        <p>Title</p>
-        <input type="text" placeholder="Title" />
-      </div>
-      <div class="modal__descr">
-        <p>Content</p>
-        <textarea
-          cols="30"
-          rows="10"
-          placeholder="What are we doing ?"
-        ></textarea>
-      </div>
-      <div class="modal__date">
-        <p>Date</p>
-        <div class="modal__date-wrapper">
-          <input type="date" required="required" />
-          <img src="../assets/icons/calendar-line.svg" alt="" />
+      <div class="modal-content__wrapper">
+        <h3 class="modal__title">Create a note</h3>
+        <div class="modal__name">
+          <p>Title</p>
+          <input type="text" placeholder="Title" />
+        </div>
+        <div class="modal__descr">
+          <p>Content</p>
+          <textarea
+            cols="30"
+            rows="10"
+            placeholder="What are we doing ?"
+          ></textarea>
+        </div>
+        <div class="modal__date">
+          <p>Date</p>
+          <div class="modal__date-wrapper">
+            <input type="date" required="required" />
+          </div>
         </div>
       </div>
+
       <div class="modal__card card">
         <p>Select color</p>
         <div class="card__type">

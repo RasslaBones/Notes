@@ -1,3 +1,25 @@
+// @keyframes animatetop {
+//     from {
+//         top: -300px;
+//         opacity: 0
+//     }
+
+//     to {
+//         top: 0;
+//         opacity: 1
+//     }
+// }
+
+@mixin animate($animation, $duration, $method) {
+    animation: $animation $duration $method
+}
+
+@mixin keyframes($name) {
+    @keyframes #{$name} {
+        @content
+    }
+}
+
 .modal {
     display: block;
     width: 100%;
@@ -23,9 +45,28 @@
         background-color: #fff;
         margin: auto;
         border-radius: 16px;
-        padding: 41px 90px 35px 90px;
-        width: 29.2%;
+        padding-bottom: 36px;
+        width: 560px;
         position: relative;
+
+        @include keyframes(animatemodal) {
+            from {
+                top: -300px;
+                opacity: 0;
+            }
+
+            to {
+                top: 0;
+                opacity: 1;
+            }
+        }
+
+        @include animate(animatemodal, 0.4s, ease-in-out);
+
+        &__wrapper {
+            padding: 41px 90px 35px 90px;
+
+        }
 
         p {
             font-weight: 700;
@@ -114,8 +155,10 @@
 }
 
 .card {
-    width: 100%;
+    width: max-content;
     margin-top: 16px;
+    display: block;
+    margin: 16px auto 0 auto;
 
     p {
         text-align: center;
@@ -124,6 +167,7 @@
     &__type {
         margin-top: 10px;
         display: flex;
+        flex-wrap: wrap;
         gap: 50px;
 
         .btn {
@@ -131,21 +175,51 @@
             border-radius: 25px;
             font-size: 12px;
             font-weight: 700;
+            padding: 8px 20px;
+
         }
 
         .urgent {
             background-color: #bc4e4e;
-            padding: 8px 20px;
         }
 
         .normal {
             background-color: #bf7245;
-            padding: 8px 30px;
         }
 
         .simple {
             background-color: #46bda5;
-            padding: 8px 30px;
+        }
+    }
+}
+
+@media (max-width:$mobile) {
+    .modal {
+        &-content {
+            width: 400px;
+
+            &__wrapper {
+                padding: 30px 45px 35px 45px;
+            }
+        }
+
+        &__name {
+            margin-top: 35px;
+        }
+    }
+
+    .card {
+        &__type {
+            gap: 25px;
+        }
+    }
+}
+
+
+@media (max-width: $mobileSmall) {
+    .modal {
+        &-content {
+            width: 350px;
         }
     }
 }
