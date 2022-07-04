@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__buttons buttons">
-      <div class="buttons__create">
+      <div class="buttons__create" @click="openModal">
         <img src="@/assets/icons/plus.svg" alt="" /><span>create</span>
       </div>
       <div class="buttons__view">
@@ -27,20 +27,33 @@
       <h3>no created notes</h3>
       <p>create one</p>
     </div>
+
+    <!-- <app-modal v-if="isOpen" @closeModal="closeModal()"></app-modal> -->
+    <!-- emit -->
+
+    <app-modal ref="modal"></app-modal>
   </div>
 </template>
 
 <script>
+import AppModal from "@/components/AppModal.vue";
 export default {
+  components: { AppModal },
   data() {
     return {
       isSmall: true,
     };
   },
   methods: {
-    viewMode() {
-      this.isSmall = !this.isSmall;
+    openModal() {
+      this.$refs.modal.open();
     },
+    // openModal() {
+    //   this.isOpen = true;
+    // },
+    // closeModal() {
+    //   this.isOpen = false;
+    // },
   },
 };
 </script>
