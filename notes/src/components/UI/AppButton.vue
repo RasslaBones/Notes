@@ -24,6 +24,7 @@ export default {
 button {
   font-size: 18px;
   font-weight: 700;
+  
 }
 .login {
   border: 3px solid #cdcdcd;
@@ -34,6 +35,8 @@ button {
   background-color: #cdcdcd;
   border-radius: 8px;
   padding: 5px 20px;
+  height: 38px;
+  max-height: 38px;
   color: #fff;
 }
 .gradient {

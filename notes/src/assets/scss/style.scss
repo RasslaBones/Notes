@@ -163,6 +163,12 @@ body {
 
 
 @import "header";
+
 @import "home";
-@import "login";
 @import "../components/modal.scss";
+
+@import "login";
+
+@import "signup";
+
+@import "card";

@@ -1,4 +1,4 @@
-.login{
+.signup{
     font-weight: 700;
     &__wrapper{
         max-width: 1108px;
@@ -11,12 +11,12 @@
             margin: 50px auto;
             flex-direction: column;
             align-items: center;
-            padding: 0 40px;
             gap: 20px;
+            padding: 0 40px;
         }
         @media (max-width: $mobile){
-            padding: 0 20px;
             margin: 20px auto;
+            padding: 0 20px;
         }
     }
     &__hero{
@@ -34,14 +34,15 @@
             height: 100%;
             object-fit: cover;
         }
-        @media (max-width: $mobile){
-            max-width: 250px;
-            max-height: 254px;
-        }
+        @media (max-width: $tablet){
+            max-width: 230px;
+            max-height: 240px;
+        } 
         @media (max-width: $mobileSmall){
             max-width: 180px;
-            max-height: 19  0px;
+            max-height: 190px;
         }
+
     }
     &__title{
         background: $gradient;
@@ -50,9 +51,9 @@
         text-align: center;
         font-size: 48px;
         line-height: 59px;
-        @media (max-width: $tablet){
-            font-size: 32px;
-            line-height: 38px;
+        @media(max-width:$tablet){
+            font-size: 26px;
+            line-height: 30px;
         }
     }
     &__text{
@@ -137,31 +138,7 @@
     }
 }
 
-.sign-up{
-    &__inputs{
-        gap: 30px;
-        @media (max-width: $tablet){
-            gap: 20px;
-        }
-        @media (max-width: $mobile){
-            gap: 10px;
-        }
-    }
-    &__image{
-        @media (max-width: $tablet){
-            max-width: 230px;
-            max-height: 240px;
-        } 
-        @media (max-width: $mobileSmall){
-            max-width: 180px;
-            max-height: 190px;
-        }
-    }
-    &__title{
-        @media(max-width:$tablet){
-            font-size: 26px !important;
-            line-height: 30px !important;
-        }
-        
-    }
+.signup{
+    
+    
 }

@@ -14,9 +14,15 @@
             </div>
 
             <div class="login__input">
-                <label for="Password">Password</label>
-                <input type="text" id="Password" placeholder="Password..."> <!-- change type to password -->
-                <router-link class="login__signup" to="signup">No account ?</router-link>
+                <label for="password">Password</label>
+                <div class="login__password" v-if="!visibility">
+                    <input v-model="password" type="password" id="password" placeholder="Password..." />
+                    <img src="@/assets/icons/visibilityON.svg" alt="Error" @click="this.visibility = !this.visibility">
+                </div>
+                <div class="login__password" v-else>
+                    <input v-model="password" type="text" id="password" placeholder="Password..." />
+                    <img src="@/assets/icons/visibilityOFF.svg" alt="Error" @click="this.visibility = !this.visibility">
+                </div>
             </div>
 
             <app-button class="login__enter" :style="'gradient'">Enter</app-button> 
@@ -27,6 +33,12 @@
 <script>
 import AppButton from '@/components/UI/AppButton.vue';
 export default{
+    data(){
+        return{
+            visibility: false,
+            password: ''
+        }
+    },
     components: {
         AppButton
     }

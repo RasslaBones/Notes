@@ -1,31 +1,30 @@
 <template>
-  <div class="home">
+
+  <div class="home__container home">
     <div class="home__buttons buttons">
-      <div class="buttons__create" @click="openModal">
-        <img src="@/assets/icons/plus.svg" alt="" /><span>create</span>
+      <div class="buttons__create">
+        <img src="@/assets/icons/plus.svg">
+        <div class="buttons__text">Create</div>
       </div>
-      <div class="buttons__view">
-        <div
-          class="buttons__view_small"
-          @click="viewMode()"
-          :class="isSmall ? 'active' : ''"
-        >
-          <img src="@/assets/icons/list-check.svg" alt="" />
+      <div class="buttons__view view">
+
+        <div class="view__small" :class="isSmall ? 'active' : ''" @click="this.isSmall = true">
+            <img src="../assets/icons/list-check.svg" />
         </div>
-        <div
-          class="buttons__view_large"
-          @click="viewMode()"
-          :class="!isSmall ? 'active' : ''"
-        >
-          <img src="@/assets/icons/list-check.svg" alt="" />
-          <img src="@/assets/icons/list-check.svg" alt="" />
+
+        <div class="view__line"></div>
+
+        <div class="view__large" :class="!isSmall ? 'active' : ''" @click="this.isSmall = false">
+            <img src="../assets/icons/list-check.svg" />
+            <img src="../assets/icons/list-check.svg" />
         </div>
+
       </div>
     </div>
-    <div class="home__content">
-      <img src="@/assets/icons/Empty-icon.svg" alt="" />
-      <h3>no created notes</h3>
-      <p>create one</p>
+    <div class="home__empty">
+      <img src="@/assets/icons/Empty-icon.svg" />
+      <div class="home__title"><strong>No created notes</strong></div>
+      <div class="home__text">Create a note!</div>
     </div>
 
     <!-- <app-modal v-if="isOpen" @closeModal="closeModal()"></app-modal> -->
@@ -57,5 +56,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
