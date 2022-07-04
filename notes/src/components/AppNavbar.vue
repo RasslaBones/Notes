@@ -16,7 +16,7 @@
       </div>
       <div class="navbar__auth" v-else>
         <router-link to="/login" @click="logOut">
-          Log Out
+          <app-button :style="'login'">Log Out</app-button>
         </router-link>
       </div>
     </div>
