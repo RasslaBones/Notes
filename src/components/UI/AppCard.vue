@@ -1,6 +1,7 @@
 <template>
     <div class="card card__wrapper" :class="color + (isChecked ? '-checked' : '')" @click="updateState">
-        <div class="card__X" @click="deleteNote">&times;</div>
+        <div class="card__X" @click.stop="deleteNote">&times;</div>
+
         <input v-model="isChecked" class="checkbox" type="checkbox" />
         <div class="card__text">
             <div class="card__header">

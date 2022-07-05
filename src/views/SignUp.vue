@@ -74,14 +74,21 @@
           />
         </div>
       </div>
-      <small v-if="error">{{ error }}</small>
+      
       <app-button
         class="signup__enter wide-button"
         :style="'gradient'"
-        @click="formIsValid"
+        v-if="formIsValid == true"
       >
-        <router-link to="/login" v-if="formIsValid == true">Sign Up</router-link>
+        <router-link to="/login">Sign Up</router-link>
       </app-button>
+      <div v-else class="signup__error">
+        <small v-if="error">{{ error }}</small>
+        <app-button class="signup__enter wide-button" :style="'gradient'" >
+        Sign Up
+      </app-button>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -101,43 +108,38 @@ export default {
   components: {
     AppButton,
   },
-  methods: {
+  computed:{
     formIsValid() {
       var numbers = /[0-9]/g;
-      var isValid = false
+
       if (this.password.length > 0) {
         if (this.password !== this.confirmPassword) {
           this.error = "Passwords didn't match!";
-          isValid = false;
+          return false;
         }
         else if (this.password.length < 8) {
           this.error = "Password must have at least  8 symbols";
-          isValid = false;
+          return false;
         }
 
         else if (!this.password.match(numbers)) {
           this.error = "Password must contain at least 1 number";
-          isValid = false;
+          return false;
         }
 
         else{
             this.error = ''
-            isValid = true
+            this.$store.dispatch("registerUser", {
+            email: this.email,
+            password: this.password,
+          });
+            return true
         }
       }
       else{
         this.error = "Enter a password."
-        isValid = false
+        return false
       }
-    //   if (isValid) {
-    //     console.log(isValid);
-    //     this.$store.dispatch("registerUser", {
-    //       email: this.email,
-    //       password: this.password,
-    //     });
-    //   }
-    console.log(isValid, this.error)
-    return isValid
     },
   },
 };

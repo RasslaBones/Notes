@@ -24,8 +24,11 @@
                     <img src="@/assets/icons/visibilityOFF.svg" alt="Error" @click="this.visibility = !this.visibility">
                 </div>
             </div>
-
-            <app-button class="login__enter" :style="'gradient'" @click="logIn">Enter</app-button>
+            <div class="login__error">
+                <div>{{loginError}}</div>
+                <app-button class="login__enter" :style="'gradient'" @click="logIn">Enter</app-button>
+            </div>
+            
    
         </div>
     </div>  
@@ -33,6 +36,7 @@
 
 <script>
 import AppButton from '@/components/UI/AppButton.vue';
+import { mapState } from 'vuex';
 export default{
     data(){
         return{
@@ -46,9 +50,12 @@ export default{
             this.$store.dispatch("loginUser",{
                 email: this.email,
                 password: this.password
-            }).then(()=> this.$router.push('/'))
+            })
         }
     },
+    computed:{
+        ...mapState(['loginError'])
+    },  
     components: {
         AppButton
     }

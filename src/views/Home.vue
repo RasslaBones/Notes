@@ -43,10 +43,10 @@
       </div>
     </div>
     
-    <div class="home__notes notes">
-      <div class="notes__red">
+    <div class="home__notes notes" :class="isSmall ? 'notes-col' : ''">
+      <div class="notes__red" v-if="findRedNotes.length > 0">
         <div class="notes__title title__red"><strong>Urgent</strong></div>
-        <div class="notes__red__wrapper">
+        <div class="notes__red__wrapper" :class="isSmall ? 'borderless' : ''">
           <app-card 
         v-for="item in findRedNotes" :key="item"
         :color="item.type" 
@@ -58,9 +58,9 @@
         ></app-card>
         </div>
       </div>
-      <div class="notes__orange">
+      <div class="notes__orange" v-if="findOrangeNotes.length > 0">
         <div class="notes__title title__orange"><strong>Normal</strong></div>
-        <div class="notes__orange__wrapper">
+        <div class="notes__orange__wrapper" :class="isSmall ? 'borderless' : ''">
           <app-card 
         v-for="item in findOrangeNotes" :key="item"
         :color="item.type" 
@@ -72,7 +72,7 @@
         ></app-card>
         </div>
       </div>
-      <div class="notes__green">
+      <div class="notes__green" v-if="findGreenNotes.length > 0">
         <div class="notes__title title__green"><strong>Simple</strong></div>
         <div class="notes__green__wrapper">
           <app-card 
@@ -100,7 +100,7 @@ import { mapGetters, mapState } from 'vuex';
 export default {
   data() {
     return {
-      isSmall: true,
+      isSmall: false,
       isCreator: false,
     };
   },

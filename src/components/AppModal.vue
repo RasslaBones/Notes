@@ -1,38 +1,32 @@
 <template>
   <div class="modal" v-if="isOpen">
-    <div class="modal-content">
-      <span class="close" @click="isOpen = false">&times;</span>
-      <h3 class="modal__title">Create a note</h3>
-      <div class="modal__name">
-        <p>Title</p>
-        <input v-model="titleContent" type="text" placeholder="Title"/>
-      </div>
-      <div class="modal__descr">
-        <p>Content</p>
-        <textarea
-          cols="30"
-          rows="10"
-          placeholder="What are we doing ?"
-          v-model="description"
-        ></textarea>
-      </div>
-      <div class="modal__date">
-        <p>Date</p>
-        <div class="modal__date-wrapper">
-          <input v-model="date" type="date" required="required" />
+    <div class="modal__wrapper" >
+      <div class="modal__x" @click="isOpen = false">&times;</div>
+      <div class="modal__title"><strong>Create a note</strong></div>
+      <div class="modal__form flex-col">
+        <div>
+          <label for="Title">Title</label>
+          <input v-model="titleContent" type="text" id="Title" placeholder="Title">
         </div>
-      </div>
-      <div class="modal__card card">
-        <p>Select color</p>
-        <div class="card__type">
-          <button class="urgent btn" @click="noteType = 'red'">Urgent</button>
-          <button class="normal btn" @click="noteType = 'orange'">
-            Normal
-          </button>
-          <button class="simple btn" @click="noteType = 'green'">Simple</button>
+
+        <div>
+          <label for="textArea">Content</label>
+          <textarea v-model="description" id="textArea" placeholder="What are we doing?" />
         </div>
+
+        <div class="flex-col">
+          <label for="date">Date</label>
+          <input v-model="date" type="date" id="date" />
+        </div>
+        
+        <div><strong>Select color</strong></div>
+        <div class="modal__buttons">
+          <div class="modal__button red-button" @click="choice = 'red', noteType = 'red'">Urgent</div>
+          <div class="modal__button orange-button" @click="choice = 'orange', noteType = 'orange'">Normal</div>
+          <div class="modal__button green-button" @click="choice = 'green', noteType = 'green'">Simple</div>
+        </div>
+        <div class="modal__create" @click="createNote" :class="choice + '-button'">Create</div>
       </div>
-      <button class="modal__create disabled" @click="createNote">Create</button>
     </div>
   </div>
 </template>
@@ -42,6 +36,7 @@ export default {
   name: "AppModal",
   data() {
     return {
+      choice: 'gray',
       isOpen: false,
       titleContent: "",
       description: "",
@@ -65,6 +60,8 @@ export default {
             done: false,
             type: this.noteType,
       });
+      this.choice = this.noteType
+      this.isOpen = false
     },
   },
 };

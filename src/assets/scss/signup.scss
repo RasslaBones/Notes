@@ -122,6 +122,11 @@
         margin: 3px 0 0 auto;
         font-size: 12px;
     }
+    &__error{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .email{
@@ -136,9 +141,4 @@
         margin: 0 auto;
         width: 100%;
     }
-}
-
-.signup{
-    
-    
 }

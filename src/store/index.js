@@ -1,8 +1,10 @@
 import Vuex from "vuex";
+import router from '../router'
 const store = new Vuex.Store({
   state: {
     isAuth: false,
     user: {},
+    loginError: ''
   },
   getters: {
     findRedNotes(state){
@@ -27,9 +29,12 @@ const store = new Vuex.Store({
     deleteNote(state, id){
       state.user.notes = state.user.notes.filter((note) => note._id !== id)
     },
+    errorMessage(state, error){
+      state.loginError = error;
+    }
   },
   actions: {
-    async registerUser({ commit }, userData) {
+    async registerUser( _ , userData) {
       await fetch("http://localhost:5000/api/auth/register", {
         method: "POST",
         headers: {
@@ -43,7 +48,8 @@ const store = new Vuex.Store({
     },
 
     async loginUser({ commit }, userData) {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      try{
+        const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -53,7 +59,19 @@ const store = new Vuex.Store({
           password: userData.password,
         }),
       });
-      commit("setUser", await response.json());
+      let awaitResponse = await response.json()
+      if(awaitResponse.message) {
+        commit("errorMessage",awaitResponse.message)
+        throw new Error(awaitResponse.message)
+      }
+        
+      else{
+        commit("setUser", awaitResponse);
+        router.push('/')
+      }
+      }catch(e){
+        console.log("Error", e)
+      }
     },
 
     async addNoteToUser({ commit }, postData) {
@@ -86,9 +104,9 @@ const store = new Vuex.Store({
       }
     },
 
-    async updateStateOfNote({commit}, data) {
+    async updateStateOfNote( _ , data) {
         try{
-            const response = await fetch(`http://localhost:5000/api/users/${store.state.user._id}/notes/${data.id}/update`, {
+            await fetch(`http://localhost:5000/api/users/${store.state.user._id}/notes/${data.id}/update`, {
             method: "PUT",
             headers: {
                 "Content-type": "application/json"
@@ -98,12 +116,11 @@ const store = new Vuex.Store({
             })
             
         });
-        console.log(await response.json())
         }catch(e){
           console.log("Error: ",e)
         }
     }
-      
+         
   },
 
   modules: {},
