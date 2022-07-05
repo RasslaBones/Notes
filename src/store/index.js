@@ -21,6 +21,7 @@ const store = new Vuex.Store({
     setUser(state, user) {
       state.user = user;
       state.isAuth = true;
+      state.loginError = '';
     },
     logOut(state) {
       state.user = {};
